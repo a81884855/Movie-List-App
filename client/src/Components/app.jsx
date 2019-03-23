@@ -16,9 +16,9 @@ class App extends React.Component {
  }
  render(){
   return (
-   <div className="movie-list">
+   <div className="movieList">
     {this.state.videos.map((video)=>
-     <MovieList video={video}/>
+     <div className = "movie"><MovieList video={video}/></div>
     )}
    </div>
   )

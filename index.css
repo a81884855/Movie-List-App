@@ -1,0 +1,25 @@
+div#main {
+ border: 2px solid #ececec;
+ width: 500px;
+ padding: 0 0 0 0;
+ height: 450px;
+}
+
+div#title {
+ padding: 20 0 20 20;
+ font-size: 22px;
+ font-weight: 700;
+ background: #ececec;
+}
+
+div.movieList {
+ padding-top: 120px;
+}
+
+div.movie {
+ border: 0.5px solid #ececec;
+ font-size: 18px;
+ padding: 10 0 10 20;
+ margin: auto;
+ width: 400px;
+}
