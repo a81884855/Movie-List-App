@@ -20,11 +20,16 @@ class Search extends React.Component {
 
  render(){
   return (
+  <div className="Search">
+   <div className="switch">
+     <div className="Watched">Watched</div>
+     <div className="ToWatch">To Watch</div>
+   </div>
    <div className="searchBar">
     <input placeholder="Search..." onChange={this.searchInput.bind(this)}></input>
     <button onClick={this.submit.bind(this)}>Go!</button>
-
    </div>
+  </div>
   )
  }
 }

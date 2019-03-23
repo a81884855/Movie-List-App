@@ -5,6 +5,24 @@ div#main {
  height: 450px;
 }
 
+div.ToWatch {
+ width: 85px;
+ height: 55px;
+ border: 1px #ececec solid;
+ text-align: center;
+ vertical-align: middle;
+ line-height: 55px; 
+}
+
+div.Watched {
+ width: 85px;
+ height: 55px;
+ border: 1px #ececec solid; 
+ text-align: center;
+ vertical-align: middle;
+ line-height: 55px; 
+}
+
 div#title {
  padding: 20 0 20 20;
  font-size: 22px;
@@ -13,7 +31,7 @@ div#title {
 }
 
 div.movieList {
- padding-top: 20px;
+ padding-top: 0px;
 }
 
 div.movie {
@@ -30,6 +48,16 @@ div.searchBar {
 }
 
 div.addMovie {
- padding: 50 0 10 50;
+ padding: 30 0 10 50;
  margin: auto;
+}
+
+div.switch {
+ display: inline-flex;
+ margin: 20 0 0 30;
+}
+
+div.Search {
+ display: inline-flex;
+ margin: 20 0 0 10;
 }

@@ -15,12 +15,13 @@ class AddMovie extends React.Component {
  }
 
  submit(){
-  this.props.search(this.state.input)
+  let newMovie = {title: this.state.input}
+  this.props.add(newMovie)
  }
 
  render(){
   return (
-   <div className="addBar">
+   <div className="addMovie">
     <input placeholder="Add movie list here" onChange={this.addMovie.bind(this)}></input>
     <button onClick={this.submit.bind(this)}>Add</button>
 

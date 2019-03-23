@@ -1,7 +1,8 @@
 import React from 'react';
-import MovieList from './movieList.jsx';
+import ToWatchMovieList from './movieList.jsx';
 import Search from './search.jsx';
 import AddMovie from './addMovie.jsx'
+import WachtedMovieList from './watchedList.jsx';
 
 const defaultVideoList = [
  {title: 'Mean Girls'},
@@ -12,20 +13,24 @@ const defaultVideoList = [
 ];
 
 const newMovie = [];
+const toWatchList = [];
+const watchedList = [];
 
 class App extends React.Component {
  constructor(props) {
    super(props);
    this.state = {
     videos: defaultVideoList,
-    currentVideos: defaultVideoList
+    currentVideos: defaultVideoList,
+    watchedList: []
    }
  }
 
  add(input){
    newMovie.push(input)
    this.setState({
-
+    videos: newMovie,
+    currentVideos: newMovie
    })
  }
 
@@ -39,9 +44,10 @@ class App extends React.Component {
  render(){
   return (
    <div>
-     <AddMovie/>
+     <AddMovie add={this.add.bind(this)}/>
      <Search search={this.search.bind(this)}/>
-     <MovieList videos={this.state.videos}/>
+     <WachtedMovieList videos={this.state.watchedList}/>
+     <ToWatchMovieList videos={this.state.videos}/>
    </div>
   )
  }

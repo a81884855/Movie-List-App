@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ToWatchMovieList extends React.Component {
+class WachtedMovieList extends React.Component {
  constructor(props) {
    super(props);
    this.state = {}
@@ -15,4 +15,4 @@ class ToWatchMovieList extends React.Component {
  }
 }
 
-export default ToWatchMovieList 
+export default WachtedMovieList 
