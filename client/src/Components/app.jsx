@@ -15,13 +15,14 @@ class App extends React.Component {
    super(props);
    this.state = {
     videos: defaultVideoList,
-    searchVideos: defaultVideoList
+    currentVideos: defaultVideoList
    }
  }
 
  search(input){
+  let searchResult = this.state.currentVideos.filter(x=> x.title.toLowerCase().includes(input.toLowerCase()))
   this.setState({
-   videos: this.state.videos.filter(x=> x.title.includes(input))
+   videos: searchResult.length > 0 ? searchResult : [{title: "no movie by that name found"}]
   })
  }
 
