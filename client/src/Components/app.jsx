@@ -1,6 +1,7 @@
 import React from 'react';
 import MovieList from './movieList.jsx';
 import Search from './search.jsx';
+import AddMovie from './addMovie.jsx'
 
 const defaultVideoList = [
  {title: 'Mean Girls'},
@@ -8,7 +9,9 @@ const defaultVideoList = [
  {title: 'The Grey'},
  {title: 'Sunshine'},
  {title: 'Ex Machina'}
-]
+];
+
+const newMovie = [];
 
 class App extends React.Component {
  constructor(props) {
@@ -17,6 +20,13 @@ class App extends React.Component {
     videos: defaultVideoList,
     currentVideos: defaultVideoList
    }
+ }
+
+ add(input){
+   newMovie.push(input)
+   this.setState({
+
+   })
  }
 
  search(input){
@@ -29,6 +39,7 @@ class App extends React.Component {
  render(){
   return (
    <div>
+     <AddMovie/>
      <Search search={this.search.bind(this)}/>
      <MovieList videos={this.state.videos}/>
    </div>
