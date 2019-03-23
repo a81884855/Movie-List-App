@@ -4,8 +4,15 @@ class Search extends React.Component {
  constructor(props) {
    super(props);
    this.state = {
-    input: ""
+    input: "",
+    click: "",
    }
+ }
+
+ switchClick(e){
+   this.setState({
+    click: e.target.className
+   }, ()=> this.props.switch(this.state.click))
  }
 
  searchInput(e){
@@ -22,8 +29,8 @@ class Search extends React.Component {
   return (
   <div className="Search">
    <div className="switch">
-     <div className="Watched">Watched</div>
-     <div className="ToWatch">To Watch</div>
+     <div className="Watched" onClick={this.switchClick.bind(this)}>Watched</div>
+     <div className="ToWatch" onClick={this.switchClick.bind(this)}>To Watch</div>
    </div>
    <div className="searchBar">
     <input placeholder="Search..." onChange={this.searchInput.bind(this)}></input>

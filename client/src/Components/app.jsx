@@ -27,7 +27,8 @@ class App extends React.Component {
  }
 
  add(input){
-   newMovie.push(input)
+   newMovie.push(input);
+   toWatchList.push(input);
    this.setState({
     videos: newMovie,
     currentVideos: newMovie
@@ -41,11 +42,17 @@ class App extends React.Component {
   })
  }
 
+ switch(input){
+    this.setState({
+      videos: input==="Watched" ? watchedList : toWatchList;
+    })
+ }
+
  render(){
   return (
    <div>
      <AddMovie add={this.add.bind(this)}/>
-     <Search search={this.search.bind(this)}/>
+     <Search search={this.search.bind(this)} switch={this.switch.bind(this)}/>
      <WachtedMovieList videos={this.state.watchedList}/>
      <ToWatchMovieList videos={this.state.videos}/>
    </div>

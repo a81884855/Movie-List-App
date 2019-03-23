@@ -24,7 +24,6 @@ class AddMovie extends React.Component {
    <div className="addMovie">
     <input placeholder="Add movie list here" onChange={this.addMovie.bind(this)}></input>
     <button onClick={this.submit.bind(this)}>Add</button>
-
    </div>
   )
  }
