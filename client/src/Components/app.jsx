@@ -22,7 +22,8 @@ class App extends React.Component {
    this.state = {
     videos: defaultVideoList,
     currentVideos: defaultVideoList,
-    watchedList: []
+    toWatchList: defaultVideoList,
+    watchedList: [],
    }
  }
 
@@ -31,7 +32,8 @@ class App extends React.Component {
    toWatchList.push(input);
    this.setState({
     videos: newMovie,
-    currentVideos: newMovie
+    currentVideos: newMovie,
+    toWatchList: toWatchList
    })
  }
 
@@ -44,7 +46,7 @@ class App extends React.Component {
 
  switch(input){
     this.setState({
-      videos: input==="Watched" ? watchedList : toWatchList;
+      videos: input==="Watched" ? this.state.watchedList: this.state.toWatchList
     })
  }
 
