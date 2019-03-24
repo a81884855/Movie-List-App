@@ -13,14 +13,19 @@ const defaultVideoList = [
 ];
 
 const newMovie = [];
-const toWatchList = [];
+const toWatchList = [
+  {title: 'Mean Girls'},
+  {title: 'Hackers'},
+  {title: 'The Grey'},
+  {title: 'Sunshine'},
+  {title: 'Ex Machina'}
+];
 const watchedList = [];
 
 class App extends React.Component {
  constructor(props) {
    super(props);
    this.state = {
-    videos: defaultVideoList,
     currentVideos: defaultVideoList,
     toWatchList: defaultVideoList,
     watchedList: [],
@@ -31,7 +36,6 @@ class App extends React.Component {
    newMovie.push(input);
    toWatchList.push(input);
    this.setState({
-    videos: newMovie,
     currentVideos: newMovie,
     toWatchList: toWatchList
    })
@@ -46,40 +50,38 @@ class App extends React.Component {
 
  switch(input){
     this.setState({
-      videos: input==="Watched" ? this.state.watchedList: this.state.toWatchList
-    })
-    console.log()
- }
-
- watched(input){
-  var watched = false
-  watchedList.forEach(x => x.title===input ? watched=true : null)
-    !watched ? watchedList.push({title: input}) 
-      : watchedList.forEach(x => x.title === input 
-        ? watchedList.splice(watchedList.indexOf(x),1) : null)
-    this.setState({
-      watchedList: watchedList
+      watchedList: input==="Watched" ? watchedList: [],
+      toWatchList: input!=="Watched"? toWatchList: []
     })
  }
 
+ //Push movie title to watchedList if not exist in watchedList
+ //Remove it if it already exist in watchedList 
   watched(input){
-  var watched = false
+  let watched = false
   watchedList.forEach(x => x.title===input ? watched=true : null)
-    !watched ? watchedList.push({title: input}) 
+    !watched ? watchedList.push({title: input}) &
+               toWatchList.forEach(x => x.title === input 
+               ? toWatchList.splice(toWatchList.indexOf(x),1) : null)
       : watchedList.forEach(x => x.title === input 
-        ? watchedList.splice(watchedList.indexOf(x),1) : null)
+        ? watchedList.splice(watchedList.indexOf(x),1) : null) &
+          toWatchList.push({title: input})
+
     this.setState({
-      watchedList: watchedList
+      watchedList: watchedList,
+      toWatchList: toWatchList
     })
   }
 
  render(){
+  //  displayStyle = {
+  //  }
   return (
    <div>
      <AddMovie add={this.add.bind(this)}/>
      <Search search={this.search.bind(this)} switch={this.switch.bind(this)}/>
      <WachtedMovieList videos={this.state.watchedList} watched={this.watched.bind(this)}/>
-     <ToWatchMovieList videos={this.state.videos} watched={this.watched.bind(this)}/>
+     <ToWatchMovieList videos={this.state.toWatchList} watched={this.watched.bind(this)}/>
    </div>
   )
  }
