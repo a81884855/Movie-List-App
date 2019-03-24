@@ -1,5 +1,5 @@
 import React from 'react';
-import ToWatchMovieList from './movieList.jsx';
+import ToWatchMovieList from './towatchmovieList.jsx';
 import Search from './search.jsx';
 import AddMovie from './addMovie.jsx'
 import WachtedMovieList from './watchedList.jsx';
@@ -48,15 +48,38 @@ class App extends React.Component {
     this.setState({
       videos: input==="Watched" ? this.state.watchedList: this.state.toWatchList
     })
+    console.log()
  }
+
+ watched(input){
+  var watched = false
+  watchedList.forEach(x => x.title===input ? watched=true : null)
+    !watched ? watchedList.push({title: input}) 
+      : watchedList.forEach(x => x.title === input 
+        ? watchedList.splice(watchedList.indexOf(x),1) : null)
+    this.setState({
+      watchedList: watchedList
+    })
+ }
+
+  watched(input){
+  var watched = false
+  watchedList.forEach(x => x.title===input ? watched=true : null)
+    !watched ? watchedList.push({title: input}) 
+      : watchedList.forEach(x => x.title === input 
+        ? watchedList.splice(watchedList.indexOf(x),1) : null)
+    this.setState({
+      watchedList: watchedList
+    })
+  }
 
  render(){
   return (
    <div>
      <AddMovie add={this.add.bind(this)}/>
      <Search search={this.search.bind(this)} switch={this.switch.bind(this)}/>
-     <WachtedMovieList videos={this.state.watchedList}/>
-     <ToWatchMovieList videos={this.state.videos}/>
+     <WachtedMovieList videos={this.state.watchedList} watched={this.watched.bind(this)}/>
+     <ToWatchMovieList videos={this.state.videos} watched={this.watched.bind(this)}/>
    </div>
   )
  }

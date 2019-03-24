@@ -5,11 +5,17 @@ class ToWatchMovieList extends React.Component {
    super(props);
    this.state = {}
  }
+
+ watchedClick(e){
+   console.log(e.target.id)
+   this.props.watched(e.target.id);
+ }
+
  render(){
   return (
    <div className="movieList">
     {this.props.videos.map((video)=>
-    <div key={video.title} className="movie">{video.title}</div>)}
+    <div key={video.title} className="movie" id={video.title} onClick={this.watchedClick.bind(this)}>{video.title}</div>)}
    </div>
   )
  }
