@@ -15,11 +15,9 @@ class WachtedMovieList extends React.Component {
   return (
    <div className="movieList" id="watchedMovieList">
     {this.props.videos.map((video)=>
-    <div className="movie">
-     <div key={video.title} id={video.title} onClick={this.toWatchClick.bind(this)}>
-     {video.title}
-     </div>
-     <div id="watched">Watched</div>
+    <div key={video.title} className="movie" id={video.title} onClick={this.toWatchClick.bind(this)}>
+     <div id={video.title}>{video.title}</div>
+     <div id={video.title}>Watched</div>
     </div>
     )}
    </div>
