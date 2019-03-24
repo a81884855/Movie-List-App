@@ -67,10 +67,10 @@ class App extends React.Component {
         ? watchedList.splice(watchedList.indexOf(x),1) : null) &
           toWatchList.push({title: input})
 
-    this.setState({
-      watchedList: watchedList,
-      toWatchList: toWatchList
-    })
+    // this.setState({
+    //   watchedList: watchedList,
+    //   toWatchList: toWatchList
+    // })
   }
 
  render(){
